@@ -1,0 +1,542 @@
+.header {
+    width: 100%;
+    /* Ширина на всю страницу */
+    background: rgb(222, 222, 228);
+    /* Цвет фона шапки */
+    color: rgb(255, 255, 255);
+    /* Цвет текста */
+    padding: 20px 0;
+    /* Отступы внутри шапки */
+    text-align: left;
+    /* Выравнивание текста по центру */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Тень для шапки */
+}
+
+
+body {
+    display: flex;
+    /* Используем Flexbox для центрирования */
+    flex-direction: column;
+    /* Вертикальное расположение элементов */
+    align-items: center;
+    /* Центрирование по горизонтали */
+    justify-content: center;
+    /* Центрирование по вертикали */
+    margin: 0;
+    /* Убираем отступы */
+    font-family: Arial, sans-serif;
+    background: #131836;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='199' viewBox='0 0 100 199'%3E%3Cg fill='%239C92AC' fill-opacity='0.4'%3E%3Cpath d='M0 199V0h1v1.99L100 199h-1.12L1 4.22V199H0zM100 2h-.12l-1-2H100v2z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed; /* Фиксация фона */
+}
+
+.base-container {
+    width: 80%;
+    margin: 50px 0;
+    padding: 20px;
+    background: linear-gradient(45deg, #232949 30%, #393e5c, #5c657e);
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px 2px #8a8ea5;
+    text-align: center;
+}
+
+.container {
+    opacity: 0;
+    transform: translateY(20px); /* Сдвигаем вниз для эффекта появления */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    width: 80%;
+    margin: 50px 0;
+    padding: 20px;
+    background: linear-gradient(45deg, #232949 30%, #393e5c, #5c657e);
+    border-radius: 8px;
+    box-shadow: 0px 0px 0px 2px #8a8ea5;
+    text-align: center;
+}
+
+/* Класс для плавного появления */
+.container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.heading {
+    color: #272635;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+    text-align: center;
+    padding: 10px;
+}
+
+.text {
+    color: #272635;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    text-align: center;
+}
+
+.text-expl {
+    color: #272635;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    text-align: left;
+}
+
+.formuls {
+    color: rgb(0, 0, 0);
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+
+.animation {
+    overflow-x: auto; /* Горизонтальная прокрутка */
+    white-space: nowrap; /* Запрещаем перенос текста */
+    width: 45%;
+    margin: 10px 0px; /* Убираем auto для горизонтального выравнивания */
+    padding: 20px;
+    background: #c5c9d3;
+    box-shadow: 0 2px 10px rgb(0, 0, 0);
+    text-align: center;
+    float: left; /* Добавлено для выравнивания влево */
+}
+
+/* Стилизация скроллбара для WebKit-браузеров (Chrome, Safari) */
+.animation::-webkit-scrollbar {
+    height: 8px; /* Высота горизонтального скроллбара */
+}
+
+.animation::-webkit-scrollbar-track {
+    background: #ffffff; /* Цвет фона трека */
+}
+
+.animation::-webkit-scrollbar-thumb {
+    background: #4d4c5e; /* Цвет ползунка */
+}
+
+.animation::-webkit-scrollbar-thumb:hover {
+    background: #3f3e53; /* Цвет ползунка при наведении */
+}
+
+.explanations {
+    width: 45%;
+    margin: 10px 0; /* Убираем auto для горизонтального выравнивания */
+    padding: 20px;
+    background: #c5c9d3;
+    box-shadow: 0 2px 10px rgb(0, 0, 0);
+    text-align: center;
+    float: right; /* Добавлено для выравнивания вправо */
+}
+
+
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    color: #c5c9d3;
+}
+
+h2 {
+    margin-left: 10%;
+    font-family: 'Times New Roman', Times, serif;
+    color: #272635;
+}
+
+.input-container {
+    margin: 20px 0;
+}
+
+input[type="number"] {
+    width: 45%;
+    padding: 10px;
+    margin: 0 5%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #272635;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #060606;
+}
+
+.result {
+    font-family: 'Times New Roman', Times, serif;
+    text-align: left;
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #c5c9d3;
+}
+
+
+
+
+
+
+
+.divider {
+    border-bottom: 1px solid #000000; /* Тонкая линия */
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+.arrow_down {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.arrow-4 {
+    position: relative;
+    cursor: pointer;
+    margin:20px;
+    width: 66px;
+    height: 30px;
+}
+.arrow-4-left {
+    position: absolute;
+    background-color: transparent;
+    top: 10px;
+    left: 0;
+    width: 40px;
+    height: 10px;
+    display: block;
+    transform: rotate(35deg);
+    float: right;
+    border-radius: 2px;
+}
+.arrow-4-left:after {
+    content: "";
+    background-color: #898596;
+    width: 40px;
+    height: 10px;
+    display: block;
+    float: right;
+    border-radius: 6px 10px 10px 6px;
+    transition: all 0.5s cubic-bezier(0.25, 1.7, 0.35, 0.8);
+    z-index: -1;
+}
+ 
+.arrow-4-right {
+    position: absolute;
+    background-color: transparent;
+    top: 10px;
+    left: 26px;
+    width: 40px;
+    height: 10px;
+    display: block;
+    transform: rotate(-35deg);
+    float: right;
+    border-radius: 2px;
+}
+.arrow-4-right:after {
+    content: "";
+    background-color: #605e7d;
+    width: 40px;
+    height: 10px;
+    display: block;
+    float: right;
+    border-radius: 10px 6px 6px 10px;
+    transition: all 0.5s cubic-bezier(0.25, 1.7, 0.35, 0.8);
+    z-index: -1;
+}
+.open .arrow-4-left:after {
+    transform-origin: center center;
+    transform: rotate(-70deg);
+}
+.open .arrow-4-right:after {
+    transform-origin: center center;
+    transform: rotate(70deg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Стили для прямоугольников */
+.node rect {
+    fill: #c5c9d3; /* Черная заливка */
+    stroke: white; /* Белая обводка */
+    stroke-width: 2px; /* Толщина обводки */
+    rx: 5px; /* Закругление углов по оси X */
+    ry: 5px; /* Закругление углов по оси Y */
+}
+  
+/* Стили для текста внутри узлов */
+.node text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px; /* Размер шрифта */
+    fill: rgb(0, 0, 0); /* Белый цвет текста */
+    text-anchor: middle; /* Выравнивание текста по центру */
+    dominant-baseline: middle; /* Вертикальное выравнивание по центру */
+}
+  
+  .link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 2px;
+  }
+  
+  .tooltip {
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    pointer-events: none;
+    font-size: 12px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .cards-row {
+    display: flex;
+    flex-direction: row; /* Карточки располагаются слева направо */
+    gap: 10px; /* Отступ между карточками */
+    
+  }
+
+
+
+
+  .card {
+    font-family: 'Times New Roman', Times, serif;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    padding: 16px;
+    width: auto;
+    background-color: #c5c9d3;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease forwards;
+  }
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .card h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+  }
+  .card p {
+    margin: 4px 0;
+  }
+
+
+  .plot {
+    margin-top: 350px;
+    padding: 20px;
+    background: #c5c9d3;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgb(0, 0, 0);
+    text-align: center;
+}
+
+
+
+
+
+.array-container {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+}
+
+.array-element {
+    font-family: 'Times New Roman', Times, serif;
+    padding: 12px;
+    border: 4px solid #9b9b9e;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    font-size: 18px; /* Увеличиваем размер шрифта */
+    text-align: center; /* Центрируем текст */
+}
+
+.array-element:hover {
+    transform: translateY(-1px); /* Поднимаем элемент при наведении */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Увеличиваем тень при наведении */
+}
+
+.array-element.carry {
+    background-color: #ff4545; /* Более светлый цвет для carry */
+    border: 4px solid #ccc;
+}
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #55536a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #272635;
+}
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Фиксированный контейнер для дерева */
+.tree-container {
+    position: relative;
+    width: 83%;
+    height: 500px;
+    margin: 0 auto;
+    background: linear-gradient(45deg, #232949 30%, #393e5c, #5c657e);
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+  }
+  /* SVG для линий */
+  .svg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 83%;
+    height: 500px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  /* Стили для узлов */
+  .node {
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    z-index: 10;
+    transition: left 0.5s, top 0.5s, opacity 0.5s, transform 0.3s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    font-weight: 500;
+    color: #333;
+  }
+  .node:hover {
+    transform: scale(1.07);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+  /* Роли узлов с индивидуальными цветами и градиентами */
+  .current {
+    background: #c5c9d3;
+    border: 1px solid #000000;
+    color: #000000;
+  }
+  .parent {
+    background: #c5c9d3;
+    border: 1px solid #000000;
+    color: #000000;
+  }
+  .child {
+    background: #c5c9d3;
+    border: 1px solid #000000;
+    color: #000000;
+  }
+  .grandchild {
+    background: #c5c9d3;
+    border: 1px solid #000000;
+    color: #000000;
+  }
+  /* Индикатор троеточия для узлов с потомками */
+  .has-children::after {
+    content: '…';
+    font-weight: bold;
+    color: #fff;
+    font-size: 1.2em;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+  }

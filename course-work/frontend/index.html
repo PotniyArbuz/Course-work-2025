@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FFT visualization</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <h2>FFT visualization</h2>
+    </header>
+    <div id="begin" class="base-container">
+        <h1>FFT visualization</h1>
+        <div class="input-container">
+            <input type="number" id="number1" placeholder="Enter first number" />
+            <input type="number" id="number2" placeholder="Enter second number" />
+        </div>
+        <button id="submitButton">Submit</button>
+        <div id="result" class="result"></div> <!-- Элемент для отображения результата -->
+    </div>
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
