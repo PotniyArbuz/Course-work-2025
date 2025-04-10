@@ -1,6 +1,6 @@
 import { createArrow } from './utils.js';
 
-export function createStep3(steps, document, A, c) {
+export function createStep6(steps, document, c_steps, finalRounded) {
     const container = document.createElement('div');
     container.className = 'step3-container';
     container.style.display = 'flex';
@@ -19,8 +19,8 @@ export function createStep3(steps, document, A, c) {
     explanationPanel.style.borderRadius = '8px';
     explanationPanel.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.15)';
     explanationPanel.innerHTML = `
-        <h3>Fast Fourier Transform (FFT)</h3>
-        <h3>Information about the vertex in the ${c} array (click on the vertex to learn more about it)</h3>
+        <h3>Inverse Fast Fourier Transform (IFFT)</h3>
+        <h3>Information about the vertex (click on the vertex to learn more about it)</h3>
         <div id="node-explanation"></div>
     `;
     container.appendChild(explanationPanel);
@@ -30,8 +30,8 @@ export function createStep3(steps, document, A, c) {
 
     document.body.appendChild(container);
 
-    const treeData = buildTree(A);
-    createAnim3(treeContainer, treeData, explanationPanel);
+    const treeData = buildTree(c_steps);
+    createAnim6(treeContainer, treeData, explanationPanel, finalRounded);
 
     steps.push(container);
 
@@ -61,7 +61,7 @@ function buildTree(step) {
     return node;
 }
 
-function createAnim3(newContainer, treeData, explanationPanel) {
+function createAnim6(newContainer, treeData, explanationPanel, finalRounded) {
     const parentMap = new Map();
     function buildParentMap(node, parent = null) {
         if (parent) {
@@ -183,7 +183,7 @@ function createAnim3(newContainer, treeData, explanationPanel) {
             }
             elem.onclick = (e) => {
                 e.stopPropagation();
-                updateExplanationPanel(explanationPanel, item.node);
+                updateExplanationPanel(explanationPanel, item.node, finalRounded);
                 transitionTo(item.node);
             };
             elem.style.left = `${item.left + offset.offsetX}px`;
@@ -283,7 +283,7 @@ function createAnim3(newContainer, treeData, explanationPanel) {
 
     let currentNode = treeData;
     updateView(currentNode);
-    updateExplanationPanel(explanationPanel, currentNode);
+    updateExplanationPanel(explanationPanel, currentNode, finalRounded);
 }
 
 function formatComplexNumber(c) {
@@ -300,7 +300,7 @@ function formatComplexNumber(c) {
     return `${real} ${imag >= 0 ? '+' : '-'} ${Math.abs(imag)}i`;
 }
 
-function updateExplanationPanel(panel, node) {
+function updateExplanationPanel(panel, node, finalRounded) {
     const inputFormatted = node.input.map(item => 
         formatComplexNumber(item)
     ).join(', ');
@@ -331,15 +331,22 @@ function updateExplanationPanel(panel, node) {
         }
     }
 
+    let finalOutputHTML = '';
+    if (node.depth === 0 && finalRounded) {
+        const reversedFinalRounded = [...finalRounded].reverse();
+        const finalRoundedFormatted = reversedFinalRounded.join(', ');
+        finalOutputHTML = `<p><strong>Final Reversed Array:</strong> \\([${finalRoundedFormatted}]\\)</p>`;
+    }
+
     panel.querySelector('#node-explanation').innerHTML = `
         <p><strong>ID:</strong> \\(${node.id}\\)</p>
         <p><strong>Depth:</strong> \\(${node.depth}\\)</p>
         <p><strong>Input Data:</strong> \\([${inputFormatted}]\\)</p>
         
         <div class="explanation-section">
-            <h4>Twiddle Factors</h4>
-            <p>Twiddle factors are complex exponentials used in the Fast Fourier Transform (FFT) algorithm to combine the results of sub-computations. They are calculated using the formula:</p>
-            <p class="math-formula">$$ W_n^k = e^{-2\\pi i k / n},\\quad where$$</p>
+            <h4>Twiddle Factors (IFFT)</h4>
+            <p>Twiddle factors for the inverse FFT are calculated using the formula:</p>
+            <p class="math-formula">$$ W_n^{-k} = e^{2\\pi i k / n},\\quad where$$</p>
             <ul>
                 <li>\\(n\\) \\(-\\) the length of the input array at this step.</li>
                 <li>\\(k\\) \\(-\\) the index from \\(0\\) to \\(n/2 - 1\\).</li>
@@ -348,15 +355,16 @@ function updateExplanationPanel(panel, node) {
         </div>
         
         <div class="explanation-section">
-            <h4>Output Data</h4>
-            <p>The output data is obtained as a combination of the FFT results for the even and odd elements from the child nodes:</p>
+            <h4>Output Data (IFFT)</h4>
+            <p>The output data is computed as a combination of the IFFT results for the even and odd elements from the child nodes, normalized by \\(1/n\\):</p>
             <ul>
-                <li>For \\(k < n/2 : output[k] = even[k] + W_n^k \\cdot odd[k]\\)</li>
-                <li>For \\(k \\geq n/2: output[k] = even[k - n/2] - W_n^k \\cdot odd[k - n/2]\\)</li>
+                <li>For \\(k < n/2 : output[k] = (even[k] + W_n^{-k} \\cdot odd[k]) / n\\)</li>
+                <li>For \\(k \\geq n/2: output[k] = (even[k - n/2] - W_n^{-k} \\cdot odd[k - n/2]) / n\\)</li>
             </ul>
             <p><strong>Even Array:</strong> Output data from the even branch (from node ${evenSource}): \\([${evenFormatted}]\\)</p>
             <p><strong>Odd Array:</strong> Output data from the odd branch (from node ${oddSource}): \\([${oddFormatted}]\\)</p>
             <p><strong>Result:</strong> \\([${outputFormatted}]\\)</p>
+            ${finalOutputHTML}
         </div>
     `;
 

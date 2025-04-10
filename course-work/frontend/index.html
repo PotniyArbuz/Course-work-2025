@@ -21,11 +21,11 @@
     <div id="begin" class="base-container">
         <h1>FFT visualization</h1>
         <div class="input-container">
-            <input type="number" id="number1" placeholder="Enter first number" />
-            <input type="number" id="number2" placeholder="Enter second number" />
+            <input type="text" id="number1" placeholder="Enter first number" pattern="[0-9]*" maxlength="9" required />
+            <input type="text" id="number2" placeholder="Enter second number" pattern="[0-9]*" maxlength="9" required />
         </div>
         <button id="submitButton">Submit</button>
-        <div id="result" class="result"></div> <!-- Элемент для отображения результата -->
+        <div id="result" class="result"></div>
     </div>
     <script type="module" src="script.js"></script>
 </body>

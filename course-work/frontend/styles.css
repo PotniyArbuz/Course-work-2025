@@ -1,34 +1,22 @@
 .header {
     width: 100%;
-    /* Ширина на всю страницу */
     background: rgb(222, 222, 228);
-    /* Цвет фона шапки */
     color: rgb(255, 255, 255);
-    /* Цвет текста */
     padding: 20px 0;
-    /* Отступы внутри шапки */
     text-align: left;
-    /* Выравнивание текста по центру */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* Тень для шапки */
 }
-
 
 body {
     display: flex;
-    /* Используем Flexbox для центрирования */
     flex-direction: column;
-    /* Вертикальное расположение элементов */
     align-items: center;
-    /* Центрирование по горизонтали */
     justify-content: center;
-    /* Центрирование по вертикали */
     margin: 0;
-    /* Убираем отступы */
     font-family: Arial, sans-serif;
     background: #131836;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='199' viewBox='0 0 100 199'%3E%3Cg fill='%239C92AC' fill-opacity='0.4'%3E%3Cpath d='M0 199V0h1v1.99L100 199h-1.12L1 4.22V199H0zM100 2h-.12l-1-2H100v2z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
-    background-attachment: fixed; /* Фиксация фона */
+    background-attachment: fixed;
 }
 
 .base-container {
@@ -43,7 +31,7 @@ body {
 
 .container {
     opacity: 0;
-    transform: translateY(20px); /* Сдвигаем вниз для эффекта появления */
+    transform: translateY(20px);
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
     width: 80%;
     margin: 50px 0;
@@ -54,7 +42,6 @@ body {
     text-align: center;
 }
 
-/* Класс для плавного появления */
 .container.visible {
     opacity: 1;
     transform: translateY(0);
@@ -91,44 +78,42 @@ body {
 }
 
 .animation {
-    overflow-x: auto; /* Горизонтальная прокрутка */
-    white-space: nowrap; /* Запрещаем перенос текста */
+    overflow-x: auto;
+    white-space: nowrap;
     width: 45%;
-    margin: 10px 0px; /* Убираем auto для горизонтального выравнивания */
+    margin: 10px 0px;
     padding: 20px;
     background: #c5c9d3;
     box-shadow: 0 2px 10px rgb(0, 0, 0);
     text-align: center;
-    float: left; /* Добавлено для выравнивания влево */
+    float: left;
 }
 
-/* Стилизация скроллбара для WebKit-браузеров (Chrome, Safari) */
 .animation::-webkit-scrollbar {
-    height: 8px; /* Высота горизонтального скроллбара */
+    height: 8px;
 }
 
 .animation::-webkit-scrollbar-track {
-    background: #ffffff; /* Цвет фона трека */
+    background: #ffffff;
 }
 
 .animation::-webkit-scrollbar-thumb {
-    background: #4d4c5e; /* Цвет ползунка */
+    background: #4d4c5e;
 }
 
 .animation::-webkit-scrollbar-thumb:hover {
-    background: #3f3e53; /* Цвет ползунка при наведении */
+    background: #3f3e53;
 }
 
 .explanations {
     width: 45%;
-    margin: 10px 0; /* Убираем auto для горизонтального выравнивания */
+    margin: 10px 0;
     padding: 20px;
     background: #c5c9d3;
     box-shadow: 0 2px 10px rgb(0, 0, 0);
     text-align: center;
-    float: right; /* Добавлено для выравнивания вправо */
+    float: right;
 }
-
 
 h1 {
     font-family: 'Times New Roman', Times, serif;
@@ -145,7 +130,7 @@ h2 {
     margin: 20px 0;
 }
 
-input[type="number"] {
+input[type="text"] {
     width: 45%;
     padding: 10px;
     margin: 0 5%;
@@ -174,46 +159,25 @@ button:hover {
     color: #c5c9d3;
 }
 
-
-
-
-
-
-
 .divider {
-    border-bottom: 1px solid #000000; /* Тонкая линия */
+    border-bottom: 1px solid #000000;
     margin-top: 10px;
     margin-bottom: 20px;
 }
-
-
-
-
-
-
 
 .arrow_down {
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-
-
-
-
-
-
-
-
-
-
 .arrow-4 {
     position: relative;
     cursor: pointer;
-    margin:20px;
+    margin: 20px;
     width: 66px;
     height: 30px;
 }
+
 .arrow-4-left {
     position: absolute;
     background-color: transparent;
@@ -226,6 +190,7 @@ button:hover {
     float: right;
     border-radius: 2px;
 }
+
 .arrow-4-left:after {
     content: "";
     background-color: #898596;
@@ -237,7 +202,7 @@ button:hover {
     transition: all 0.5s cubic-bezier(0.25, 1.7, 0.35, 0.8);
     z-index: -1;
 }
- 
+
 .arrow-4-right {
     position: absolute;
     background-color: transparent;
@@ -250,6 +215,7 @@ button:hover {
     float: right;
     border-radius: 2px;
 }
+
 .arrow-4-right:after {
     content: "";
     background-color: #605e7d;
@@ -261,77 +227,40 @@ button:hover {
     transition: all 0.5s cubic-bezier(0.25, 1.7, 0.35, 0.8);
     z-index: -1;
 }
+
 .open .arrow-4-left:after {
     transform-origin: center center;
     transform: rotate(-70deg);
 }
+
 .open .arrow-4-right:after {
     transform-origin: center center;
     transform: rotate(70deg);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Стили для прямоугольников */
 .node rect {
-    fill: #c5c9d3; /* Черная заливка */
-    stroke: white; /* Белая обводка */
-    stroke-width: 2px; /* Толщина обводки */
-    rx: 5px; /* Закругление углов по оси X */
-    ry: 5px; /* Закругление углов по оси Y */
+    fill: #c5c9d3;
+    stroke: white;
+    stroke-width: 2px;
+    rx: 5px;
+    ry: 5px;
 }
-  
-/* Стили для текста внутри узлов */
+
 .node text {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 20px; /* Размер шрифта */
-    fill: rgb(0, 0, 0); /* Белый цвет текста */
-    text-anchor: middle; /* Выравнивание текста по центру */
-    dominant-baseline: middle; /* Вертикальное выравнивание по центру */
+    font-size: 20px;
+    fill: rgb(0, 0, 0);
+    text-anchor: middle;
+    dominant-baseline: middle;
 }
-  
-  .link {
+
+.link {
     fill: none;
     stroke: #ccc;
     stroke-width: 2px;
-  }
-  
-  .tooltip {
+}
+
+.tooltip {
     position: absolute;
     background: #fff;
     border: 1px solid #ccc;
@@ -339,37 +268,15 @@ button:hover {
     border-radius: 5px;
     pointer-events: none;
     font-size: 12px;
-  }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  .cards-row {
+.cards-row {
     display: flex;
-    flex-direction: row; /* Карточки располагаются слева направо */
-    gap: 10px; /* Отступ между карточками */
-    
-  }
+    flex-direction: row;
+    gap: 10px;
+}
 
-
-
-
-  .card {
+.card {
     font-family: 'Times New Roman', Times, serif;
     border: 1px solid #000000;
     border-radius: 8px;
@@ -379,23 +286,25 @@ button:hover {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeIn 0.5s ease forwards;
-  }
-  @keyframes fadeIn {
+}
+
+@keyframes fadeIn {
     to {
-      opacity: 1;
-      transform: translateY(0);
+        opacity: 1;
+        transform: translateY(0);
     }
-  }
-  .card h3 {
+}
+
+.card h3 {
     margin: 0 0 10px;
     font-size: 18px;
-  }
-  .card p {
+}
+
+.card p {
     margin: 4px 0;
-  }
+}
 
-
-  .plot {
+.plot {
     margin-top: 350px;
     padding: 20px;
     background: #c5c9d3;
@@ -404,16 +313,11 @@ button:hover {
     text-align: center;
 }
 
-
-
-
-
 .array-container {
     display: flex;
     gap: 5px;
     margin-bottom: 20px;
     margin-top: 20px;
-
 }
 
 .array-element {
@@ -424,17 +328,17 @@ button:hover {
     background-color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    font-size: 18px; /* Увеличиваем размер шрифта */
-    text-align: center; /* Центрируем текст */
+    font-size: 18px;
+    text-align: center;
 }
 
 .array-element:hover {
-    transform: translateY(-1px); /* Поднимаем элемент при наведении */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Увеличиваем тень при наведении */
+    transform: translateY(-1px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .array-element.carry {
-    background-color: #ff4545; /* Более светлый цвет для carry */
+    background-color: #ff4545;
     border: 4px solid #ccc;
 }
 
@@ -452,25 +356,9 @@ button:hover {
     background-color: #272635;
 }
 
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Фиксированный контейнер для дерева */
 .tree-container {
     position: relative;
-    width: 83%;
+    width: 100%;
     height: 500px;
     margin: 0 auto;
     background: linear-gradient(45deg, #232949 30%, #393e5c, #5c657e);
@@ -478,21 +366,21 @@ button:hover {
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     overflow: hidden;
-  }
-  /* SVG для линий */
-  .svg-overlay {
+}
+
+.svg-overlay {
     position: absolute;
     top: 0;
     left: 0;
-    width: 83%;
+    width: 100%;
     height: 500px;
     pointer-events: none;
     z-index: 0;
-  }
-  /* Стили для узлов */
-  .node {
+}
+
+.node {
     position: absolute;
-    width: 100px;
+    width: 80px;
     height: 40px;
     line-height: 40px;
     border-radius: 8px;
@@ -501,42 +389,96 @@ button:hover {
     white-space: nowrap;
     z-index: 10;
     transition: left 0.5s, top 0.5s, opacity 0.5s, transform 0.3s;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     font-weight: 500;
     color: #333;
-  }
-  .node:hover {
+    font-size: 14px;
+    padding: 5px;
+}
+
+.node:hover {
     transform: scale(1.07);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  }
-  /* Роли узлов с индивидуальными цветами и градиентами */
-  .current {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.current {
     background: #c5c9d3;
     border: 1px solid #000000;
     color: #000000;
-  }
-  .parent {
+}
+
+.parent {
     background: #c5c9d3;
     border: 1px solid #000000;
     color: #000000;
-  }
-  .child {
+}
+
+.child {
     background: #c5c9d3;
     border: 1px solid #000000;
     color: #000000;
-  }
-  .grandchild {
+}
+
+.grandchild {
     background: #c5c9d3;
     border: 1px solid #000000;
     color: #000000;
-  }
-  /* Индикатор троеточия для узлов с потомками */
-  .has-children::after {
-    content: '…';
-    font-weight: bold;
-    color: #fff;
-    font-size: 1.2em;
-    position: absolute;
-    right: 5px;
-    bottom: 5px;
-  }
+}
+
+.step3-container {
+    display: flex;
+    width: 100%;
+    height: 75vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.explanation-panel {
+    flex: 1;
+    height: 91%;
+    padding: 20px;
+    background: #c5c9d3;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    overflow-y: auto;
+}
+
+
+
+.explanation-section {
+    margin-top: 15px;
+    padding: 10px;
+    background: #f0f2f5;
+    border-radius: 5px;
+}
+
+.explanation-section h4 {
+    margin: 0 0 10px;
+    font-size: 16px;
+    color: #272635;
+}
+
+.explanation-section p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.explanation-section ul {
+    margin: 5px 0 10px 20px;
+    padding: 0;
+    list-style-type: disc;
+}
+
+.explanation-section ul li {
+    font-size: 14px;
+    color: #333;
+}
+
+.math-formula {
+    text-align: center;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+
